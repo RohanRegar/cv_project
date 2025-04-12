@@ -1,0 +1,26 @@
+# Core
+# python>=25.0.1
+streamlit>=1.32.0
+numpy
+Pillow
+opencv-python-headless
+matplotlib
+scikit-image
+scipy
+
+# Torch and vision
+torch
+torchvision
+timm
+segmentation-models-pytorch
+
+# Pix2Pix / CycleGAN dependencies
+dominate
+visdom
+yacs
+
+# Optional: if test.py uses HTML generation and wandb
+html5lib
+wandb
+
+# For subprocess, shutil, argparse (these are in Python stdlib, no install needed)
