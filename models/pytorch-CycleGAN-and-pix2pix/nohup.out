@@ -1,0 +1,90 @@
+Setting up a new session...
+/home/soham/.conda/envs/4dhumans_p/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:227: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn(
+----------------- Options ---------------
+               batch_size: 1                             
+                    beta1: 0.5                           
+          checkpoints_dir: ./checkpoints                 
+           continue_train: False                         
+                crop_size: 256                           
+                 dataroot: /DATA/soham/garments/preet/soumikrakshit/nyu-depth-v2/versions/1/nyu_data/data/nyu_pngs_from_mat	[default: None]
+             dataset_mode: template                      	[default: aligned]
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 400                           
+               display_id: 1                             
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 256                           
+                    epoch: latest                        
+              epoch_count: 1                             
+                 gan_mode: vanilla                       
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+                lambda_L1: 100.0                         
+                load_iter: 0                             	[default: 0]
+                load_size: 286                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: pix2pix                       	[default: cycle_gan]
+                 n_epochs: 200                           
+           n_epochs_decay: 200                           
+               n_layers_D: 3                             
+                     name: mat3                          	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 64                            
+               no_dropout: False                         
+                  no_flip: False                         
+                  no_html: False                         
+                     norm: batch                         
+              num_threads: 4                             
+                output_nc: 1                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+               print_freq: 100                           
+             save_by_iter: False                         
+          save_epoch_freq: 5                             
+         save_latest_freq: 5000                          
+           serial_batches: False                         
+                   suffix:                               
+         update_html_freq: 1000                          
+                use_wandb: False                         
+                  verbose: False                         
+       wandb_project_name: CycleGAN-and-pix2pix          
+----------------- End -------------------
+dataset [TemplateDataset] was created
+The number of training images = 1449
+initialize network with normal
+initialize network with normal
+model [Pix2PixModel] was created
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 54.410 M
+[Network D] Total number of parameters : 2.767 M
+-----------------------------------------------
+create web directory ./checkpoints/mat3/web...
+learning rate 0.0002000 -> 0.0002000
+Traceback (most recent call last):
+  File "/home/soham/garments/preet/preet1/pytorch-CycleGAN-and-pix2pix/train.py", line 52, in <module>
+    model.optimize_parameters()   # calculate loss functions, get gradients, update network weights
+  File "/home/soham/garments/preet/preet1/pytorch-CycleGAN-and-pix2pix/models/pix2pix_model.py", line 126, in optimize_parameters
+    self.backward_G()                   # calculate graidents for G
+  File "/home/soham/garments/preet/preet1/pytorch-CycleGAN-and-pix2pix/models/pix2pix_model.py", line 111, in backward_G
+    self.loss_G_L1 = self.criterionL1(self.fake_B, self.real_B) * self.opt.lambda_L1
+  File "/home/soham/.conda/envs/4dhumans_p/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/soham/.conda/envs/4dhumans_p/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/soham/.conda/envs/4dhumans_p/lib/python3.10/site-packages/torch/nn/modules/loss.py", line 128, in forward
+    return F.l1_loss(input, target, reduction=self.reduction)
+  File "/home/soham/.conda/envs/4dhumans_p/lib/python3.10/site-packages/torch/nn/functional.py", line 3830, in l1_loss
+    return torch._C._nn.l1_loss(
+KeyboardInterrupt
